@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* inital styling for content div */
+.content {
+    display: flex;
+    margin-top: 20px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    height: 96vh;
+    width: 98vw;
+}
+
+/* initial styling for nav div */
+.nav {
+    height: 100%;
+    width: 15%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+/* initial styling for display div */
+.display {
+    height: 100%;
+    width: 85%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
