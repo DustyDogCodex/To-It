@@ -23,11 +23,14 @@ class Home {
 
         newToDoDiv.appendChild(newToDoButton)
         newToDoDiv.appendChild(newToDoSpan)
+        newToDoDiv.classList.add('newToDoDiv')
         newProjectDiv.appendChild(newProjectButton)
         newProjectDiv.appendChild(newProjectSpan)
+        newProjectDiv.classList.add('newProjectDiv')
 
         newDivForButtons.appendChild(newToDoDiv)
         newDivForButtons.appendChild(newProjectDiv)
+        newDivForButtons.classList.add('addNew')
 
         display.appendChild(newDivForButtons)
     }

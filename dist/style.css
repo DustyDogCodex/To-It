@@ -74,3 +74,58 @@ body{
     border-radius: 20px;
     background: whitesmoke;
 }
+
+/* styling for addNew to-do/project div */
+.addNew {
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.newToDoDiv, .newProjectDiv {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.addNewToDo{
+    padding: 10px 15px;
+    margin: 15px;
+    height: 60px;
+    width: 60px;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #00A36C;
+}
+
+/* styling for buttons inside addnew to-do/project */
+.addNewProject{
+    padding: 10px 15px;
+    margin: 15px;
+    height: 60px;
+    width: 60px;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #5D3FD3;
+}
+
+/* hover animation for buttons */
+.addNewToDo:hover, .addNewProject:hover {
+    animation-name: rotate;
+    animation-duration: 0.5s;  
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
