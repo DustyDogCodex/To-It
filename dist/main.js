@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.js */ \"./src/Home.js\");\n\n\nconst homeButton = document.querySelector('#home')\n\nhomeButton.addEventListener('click', () => {\n    _Home_js__WEBPACK_IMPORTED_MODULE_0__.Home.HomeDisplay()\n})\n\n//# sourceURL=webpack://to-it/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.js */ \"./src/Home.js\");\n/* harmony import */ var _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoDisplay.js */ \"./src/toDoDisplay.js\");\n\n\n\nconst homeButton = document.querySelector('#home')\nconst toDoButton = document.querySelector('#toDo')\n\nhomeButton.addEventListener('click', () => {\n    _Home_js__WEBPACK_IMPORTED_MODULE_0__.Home.HomeDisplay()\n})\n\ntoDoButton.addEventListener('click', () => {\n    _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__.ToDo.Display()\n})\n\n//# sourceURL=webpack://to-it/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/toDoDisplay.js":
+/*!****************************!*\
+  !*** ./src/toDoDisplay.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"ToDo\": () => (/* binding */ ToDo)\n/* harmony export */ });\nclass ToDo {\n    static Display() {\n        /* HARDCOded a todo array to work with for now. This represents the stored todos in a database or local storage */\n        const toDos = ['TODO1', 'TODO2', 'TODO3']\n\n        const display = document.querySelector('.display')\n\n        toDos.forEach((toDo) => {\n            const newDiv = document.createElement('div')\n\n            newDiv.classList.add('toDoDiv')\n            newDiv.innerText = `${toDo}`\n\n            display.appendChild(newDiv)\n        })\n\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/toDoDisplay.js?");
 
 /***/ })
 
