@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/addToDoModal.js":
+/*!*****************************!*\
+  !*** ./src/addToDoModal.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"NewToDo\": () => (/* binding */ NewToDo)\n/* harmony export */ });\nclass NewToDo {\n    static NewToDoModal() {\n        const content = document.querySelector('.content')\n        const newToDo = document.createElement('form')\n        \n        newToDo.classList.add('newToDoModal')\n        newToDo.innerHTML = '<label>To-Do: <input type=\\'text\\' name=\\'toDo\\'></label> <label>Due Date: <input type=\\'date\\' name=\\'dueDate\\'></label> <label>Priority: <input type=\\'radio\\' name=\\'low\\'><input type=\\'radio\\' name=\\'medium\\'><input type=\\'radio\\' name=\\'high\\'></label> <input type=\\'submit\\'>'\n\n        content.appendChild(newToDo)\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/addToDoModal.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.js */ \"./src/Home.js\");\n/* harmony import */ var _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoDisplay.js */ \"./src/toDoDisplay.js\");\n\n\n\nconst homeButton = document.querySelector('#home')\nconst toDoButton = document.querySelector('#toDo')\n\nhomeButton.addEventListener('click', () => {\n    _Home_js__WEBPACK_IMPORTED_MODULE_0__.Home.HomeDisplay()\n})\n\ntoDoButton.addEventListener('click', () => {\n    _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__.ToDo.Display()\n})\n\n//# sourceURL=webpack://to-it/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.js */ \"./src/Home.js\");\n/* harmony import */ var _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoDisplay.js */ \"./src/toDoDisplay.js\");\n/* harmony import */ var _addToDoModal_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addToDoModal.js */ \"./src/addToDoModal.js\");\n\n\n\n\nconst homeButton = document.querySelector('#home')\nconst toDoButton = document.querySelector('#toDo')\nconst addToDo = document.querySelector('.addNewToDo')\n\nhomeButton.addEventListener('click', () => {\n    _Home_js__WEBPACK_IMPORTED_MODULE_0__.Home.HomeDisplay()\n})\n\ntoDoButton.addEventListener('click', () => {\n    _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__.ToDo.Display()\n})\n\naddToDo.addEventListener('click', () => {\n    _addToDoModal_js__WEBPACK_IMPORTED_MODULE_2__.NewToDo.NewToDoModal()\n})\n\n//# sourceURL=webpack://to-it/./src/index.js?");
 
 /***/ }),
 

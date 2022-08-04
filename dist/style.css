@@ -141,3 +141,10 @@ body{
     align-items: center;
     border: 1px solid black;
 }
+
+/* styling for new to do modal */
+.newToDoModal {
+    height: 50vh;
+    width: 50vw;
+    background: black;
+}
