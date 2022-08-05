@@ -5,9 +5,35 @@
 body{
     margin: 0;
     padding: 0;
-    display: flex;
+    font-weight: 300;
+    font-size: 1.3rem;
+    display: grid;
+    grid: "header header header header" auto 
+          "...... projects  active ......" auto /
+          1fr minmax(100px,300px) minmax(250px, 500px) 1fr;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background: #CBC3E3;
+    background: #7FFFD4;
+}
+
+.title {
+    grid-area: header;
+    opacity: calc(0.4);
+}
+
+.projects{
+    grid-area: projects;
+}
+
+.todo-list{
+    grid-area: active;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+label:hover {
+    cursor: pointer;
 }

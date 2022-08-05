@@ -12,7 +12,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    
+    <h1 class="title">Let's get <em>To-It!</em></h1>
+
+    <!-- html for project list on the left hand side of the screen -->
+    <div class="projects">
+        <h2 class="project-titles">My Projects</h2>
+        <ul class="project-list">
+            <li class="active-project">Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+        </ul>
+
+        <form action="">
+            <input 
+                type="text" 
+                class="new-project" 
+                placeholder="add a new project!" 
+                aria-label="add-new-project">
+            <button class="add-new-project" aria-label="create-new-project">+</button>
+        </form>
+
+    </div>
+
+    <!-- html for the to-do display area -->
+    <div class="todo-list">
+        <div class="todo-list-header">
+            <h2 class="project-title">Project 1</h2>
+            <p class="task-count">X tasks remaining</p>
+        </div>
+
+        <div class="todo-display">
+            <div class="todos">
+                <!-- switched naming from todos to task here, so that I know when I'm working inside the todo-display area  -->
+                <!-- hardcoding these styles for working one the styling. In the final porject, these would be generated thru JS -->
+                <div class="task">
+                    <label>
+                        <input type="checkbox" id="task-1">
+                        THIS IS A TASK ASSIGNED TO YOU
+                    </label>
+                    <span class="custom-checkbox"></span>
+                </div>
+                <!-- end of task 1 -->
+
+                <div class="task">
+                    <label>
+                        <input type="checkbox" id="task-2">
+                        THIS IS A SECOND TASK ASSIGNED TO YOU
+                    </label>
+                    <span class="custom-checkbox"></span>
+                </div>
+                <!-- end of task 2 -->
+
+                <div class="task">
+                    <label>
+                        <input type="checkbox" id="task-3">
+                        Is this your final task? maybe. maybe not. maybe finish this project and find out?
+                    </label>
+                    <span class="custom-checkbox"></span>
+                </div>
+                <!-- end of task 3 -->
+            </div>
+
+            <div class="create-new-todo">
+                <form action="">
+                    <input 
+                        type="text" 
+                        class="new-project" 
+                        placeholder="add a new to-do!" 
+                        aria-label="add-new-to-do">
+                    <button class="add-new-task" aria-label="create-new-project">+</button>
+                </form>
+            </div>
+
+            <div class="delete-stuff">
+                <button class="delete-button">Clear completed tasks</button>
+                <button class="delete-button">Delete project</button>
+            </div>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
