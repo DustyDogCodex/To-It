@@ -41,25 +41,127 @@ body{
     font-size: 1.5rem;
 }
 
-.new-project, .new-task{
+.project-name{
+    cursor: pointer;
+}
+
+.project-name:hover{
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* styling for input elements for adding new tasks/projects */
+form{
+    display: flex;
+}
+
+button{
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 300ms ease-in-out;
+}
+
+.add-new-project, .add-new-task{
+    font-size: 1.5rem;
+    margin-right: 0.4rem;
+}
+
+.add-new-project:hover {
+    opacity: 0.5;
+}
+
+.add-new-task:hover {
+    opacity: 0.5;
+}
+
+.new-project{
     background: transparent;
     border: 0;
     border-bottom: 1px solid white;
     font-size: inherit;
+    outline: none;
+    /* by setting the display to flex and changing the order to 2, it allows us to have the button, before input element. But if you tab thru it, the input is selected before the button which makes it easier for the user to enter info and then tab to select the buttons */
+    order: 2;
+    transition: border-bottom-width 150ms ease-in-out;
 }
 
-::placeholder {
+/* repeating code is not the best practice but I just wanted these to work lol */
+.new-task{
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: inherit;
+    outline: none;
+    order: 2;
+    transition: border-bottom-width 150ms ease-in-out;
+}
+
+.new-project::placeholder {
     color: white;
 }
 
+.new-task::placeholder{
+    color: #36454F;
+}
+
+.new-project:focus{
+    border-bottom-width: 3px;
+}
+
+.new-project:focus::placeholder{
+    opacity: 0.4;
+}
+
+.new-task:focus{
+    border-bottom-width: 3px;
+}
+
+.new-task:focus::placeholder{
+    opacity: 0.4;
+}
+
 .todo-list{
+    /* locally created CSS variable, since this is the only place i'm using it in. Here to make it easier to add the same amount of space between elements */
+    --spacer: 1.5rem;
     grid-area: active;
+    background: white;
+    color: #36454F;
 }
 
-li:hover {
-    cursor: pointer;
+.todo-list-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #E5E4E2;
+    padding: var(--spacer);
 }
 
+.project-title{
+    margin: 0;
+    margin-right: 1em;
+}
+
+.task-count{
+    margin: 0;
+    font-size: 1rem;
+}
+
+.todo-display{
+    padding: var(--spacer);
+}
+
+.task{
+    color: #36454F;
+}
+
+/* styling cursor to change when hovering over clickable labels */
 label:hover {
     cursor: pointer;
+}
+
+/* styling specific to the delete buttons */
+.delete-button{
+    color: #36454F;
 }
