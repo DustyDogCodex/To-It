@@ -1,19 +1,7 @@
-import { Home } from './Home.js'
-import { ToDo } from './toDoDisplay.js'
-import { NewToDo } from './addToDoModal.js'
+import { Render } from './render.js'
 
-const homeButton = document.querySelector('#home')
-const toDoButton = document.querySelector('#toDo')
-const addToDo = document.querySelector('.addNewToDo')
+const projectList = document.querySelector('[data-projects]')
 
-homeButton.addEventListener('click', () => {
-    Home.HomeDisplay()
-})
+let projects = ['name','todo']
 
-toDoButton.addEventListener('click', () => {
-    ToDo.Display()
-})
-
-addToDo.addEventListener('click', () => {
-    NewToDo.NewToDoModal()
-})
+Render.projects()

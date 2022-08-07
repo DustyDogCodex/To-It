@@ -10,43 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/Home.js":
-/*!*********************!*\
-  !*** ./src/Home.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Home\": () => (/* binding */ Home)\n/* harmony export */ });\n/* class for changing display when user selects the home tab */\nclass Home {\n    static HomeDisplay(){\n        const display = document.querySelector('.display')\n\n        /* create button for adding new to-do */\n        /* newDivForButtons will contain 2 separate divs. Each of these divs contains a button and a span element. */\n        const newDivForButtons = document.createElement('div')\n        const newToDoDiv = document.createElement('div')\n        const newProjectDiv = document.createElement('div')\n        const newToDoSpan = document.createElement('span')\n        const newProjectSpan = document.createElement('span')\n        const newToDoButton = document.createElement('button')\n        const newProjectButton = document.createElement('button')\n\n        newToDoButton.innerText = '+'\n        newToDoButton.classList.add('addNewToDo')\n        newToDoSpan.innerText = 'Add a new to-do item!'\n\n        newProjectButton.innerText = '+'\n        newProjectButton.classList.add('addNewProject')\n        newProjectSpan.innerText = 'Start a new project!'\n\n        newToDoDiv.appendChild(newToDoButton)\n        newToDoDiv.appendChild(newToDoSpan)\n        newToDoDiv.classList.add('newToDoDiv')\n        newProjectDiv.appendChild(newProjectButton)\n        newProjectDiv.appendChild(newProjectSpan)\n        newProjectDiv.classList.add('newProjectDiv')\n\n        newDivForButtons.appendChild(newToDoDiv)\n        newDivForButtons.appendChild(newProjectDiv)\n        newDivForButtons.classList.add('addNew')\n\n        display.appendChild(newDivForButtons)\n    }\n}\n\n\n\n\n//# sourceURL=webpack://to-it/./src/Home.js?");
-
-/***/ }),
-
-/***/ "./src/addToDoModal.js":
-/*!*****************************!*\
-  !*** ./src/addToDoModal.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"NewToDo\": () => (/* binding */ NewToDo)\n/* harmony export */ });\nclass NewToDo {\n    static NewToDoModal() {\n        const content = document.querySelector('.content')\n        const newToDo = document.createElement('form')\n        \n        newToDo.classList.add('newToDoModal')\n        /* newToDo.innerHTML = '<label>To-Do: <input type=\\'text\\' name=\\'toDo\\'></label> <label>Due Date: <input type=\\'date\\' name=\\'dueDate\\'></label> <label>Priority: <input type=\\'radio\\' name=\\'low\\'><input type=\\'radio\\' name=\\'medium\\'><input type=\\'radio\\' name=\\'high\\'></label> <input type=\\'submit\\'>' */\n\n        content.appendChild(newToDo)\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/addToDoModal.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.js */ \"./src/Home.js\");\n/* harmony import */ var _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoDisplay.js */ \"./src/toDoDisplay.js\");\n/* harmony import */ var _addToDoModal_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addToDoModal.js */ \"./src/addToDoModal.js\");\n\n\n\n\nconst homeButton = document.querySelector('#home')\nconst toDoButton = document.querySelector('#toDo')\nconst addToDo = document.querySelector('.addNewToDo')\n\nhomeButton.addEventListener('click', () => {\n    _Home_js__WEBPACK_IMPORTED_MODULE_0__.Home.HomeDisplay()\n})\n\ntoDoButton.addEventListener('click', () => {\n    _toDoDisplay_js__WEBPACK_IMPORTED_MODULE_1__.ToDo.Display()\n})\n\naddToDo.addEventListener('click', () => {\n    _addToDoModal_js__WEBPACK_IMPORTED_MODULE_2__.NewToDo.NewToDoModal()\n})\n\n//# sourceURL=webpack://to-it/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _render_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render.js */ \"./src/render.js\");\n\n\nconst projectList = document.querySelector('[data-projects]')\n\nlet projects = ['name','todo']\n\n_render_js__WEBPACK_IMPORTED_MODULE_0__.Render.projects()\n\n//# sourceURL=webpack://to-it/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/toDoDisplay.js":
-/*!****************************!*\
-  !*** ./src/toDoDisplay.js ***!
-  \****************************/
+/***/ "./src/render.js":
+/*!***********************!*\
+  !*** ./src/render.js ***!
+  \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"ToDo\": () => (/* binding */ ToDo)\n/* harmony export */ });\nclass ToDo {\n    static Display() {\n        /* HARDCOded a todo array to work with for now. This represents the stored todos in a database or local storage */\n        const toDos = ['TODO1', 'TODO2', 'TODO3']\n\n        const display = document.querySelector('.display')\n\n        toDos.forEach((toDo) => {\n            const newDiv = document.createElement('div')\n\n            newDiv.classList.add('toDoDiv')\n            newDiv.innerText = `${toDo}`\n\n            display.appendChild(newDiv)\n        })\n\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/toDoDisplay.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Render\": () => (/* binding */ Render)\n/* harmony export */ });\nclass Render {\n    static projects() {\n        const projectList = document.querySelector('[data-projects]')\n\n        let projects = [{\n            id: 1,\n            name: 'name'\n        }, {\n            id: 2,\n            name: 'todo'\n        }]\n\n        this.clearElement(projectList)\n        projects.forEach(project => {\n            const projectElement = document.createElement('li')\n            projectElement.classList.add('project-name')\n            projectElement.innerText = project.name\n            projectList.appendChild(projectElement)\n        });\n    }\n\n    static clearElement(element){\n        while (element.firstChild) {\n            element.removeChild(element.firstChild)\n        }\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/render.js?");
 
 /***/ })
 
