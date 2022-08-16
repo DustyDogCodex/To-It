@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/createProject.js":
+/*!******************************!*\
+  !*** ./src/createProject.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CreateNewProject\": () => (/* binding */ CreateNewProject)\n/* harmony export */ });\n/* Class for creating a new project from user supplied inputs */\n\nclass CreateNewProject {\n    static newProject(name) {\n        return { id: Date.now().toString(), name: name, tasks: [] }\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/createProject.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _render_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render.js */ \"./src/render.js\");\n\n\nconst projectList = document.querySelector('[data-projects]')\n\nlet projects = ['name','todo']\n\n_render_js__WEBPACK_IMPORTED_MODULE_0__.Render.projects()\n\n//# sourceURL=webpack://to-it/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _render_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render.js */ \"./src/render.js\");\n/* harmony import */ var _createProject_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createProject.js */ \"./src/createProject.js\");\n/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage.js */ \"./src/storage.js\");\n\n\n\n\nconst newProjectForm = document.querySelector('[data-new-project-form]')\nconst newProjectInput = document.querySelector('[data-new-project-input]')\n\nconst LOCAL_STORAGE_PROJECT_KEY = 'task.projects'\nlet projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [] \n\nfunction saveAndRender() {\n    _storage_js__WEBPACK_IMPORTED_MODULE_2__.Storage.save()\n    _render_js__WEBPACK_IMPORTED_MODULE_0__.Render.projectList()\n}\n\nnewProjectForm.addEventListener('submit', e => {\n    e.preventDefault()\n    const projectName = newProjectInput.value\n    if (projectName == null || projectName === '') { \n        return\n    }\n    const project = _createProject_js__WEBPACK_IMPORTED_MODULE_1__.CreateNewProject.createProject(projectName)\n    newProjectInput.value = null\n    projects.push(project)\n    saveAndRender()\n})\n\n_render_js__WEBPACK_IMPORTED_MODULE_0__.Render.projectList()\n\n//# sourceURL=webpack://to-it/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ren
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Render\": () => (/* binding */ Render)\n/* harmony export */ });\nclass Render {\n    static projects() {\n        const projectList = document.querySelector('[data-projects]')\n\n        let projects = [{\n            id: 1,\n            name: 'name'\n        }, {\n            id: 2,\n            name: 'todo'\n        }]\n\n        this.clearElement(projectList)\n        projects.forEach(project => {\n            const projectElement = document.createElement('li')\n            projectElement.classList.add('project-name')\n            projectElement.innerText = project.name\n            projectList.appendChild(projectElement)\n        });\n    }\n\n    static clearElement(element){\n        while (element.firstChild) {\n            element.removeChild(element.firstChild)\n        }\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/render.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Render\": () => (/* binding */ Render)\n/* harmony export */ });\n/* class for rendering a list of projects in the My Projects section. */\nclass Render {\n    static projectList() {\n        const projectList = document.querySelector('[data-projects]')\n\n        let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || []\n\n        /* method for clearing and rendering new project list */\n        this.clearElement(projectList)\n        projects.forEach(project => {\n            const projectElement = document.createElement('li')\n            projectElement.dataset.projectId = project.id\n            projectElement.classList.add('project-name')\n            projectElement.innerText = project.name\n            projectList.appendChild(projectElement)\n        });\n    }\n\n    /* method clears previous elements from project list before rendering a fresh list. */\n    static clearElement(element){\n        while (element.firstChild) {\n            element.removeChild(element.firstChild)\n        }\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/render.js?");
+
+/***/ }),
+
+/***/ "./src/storage.js":
+/*!************************!*\
+  !*** ./src/storage.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Storage\": () => (/* binding */ Storage)\n/* harmony export */ });\n/* for accessing and setting stuff in local storage */\nclass Storage {\n    static save(){\n        localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects))\n    }\n}\n\n\n\n//# sourceURL=webpack://to-it/./src/storage.js?");
 
 /***/ })
 

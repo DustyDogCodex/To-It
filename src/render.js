@@ -3,6 +3,8 @@ class Render {
     static projectList() {
         const projectList = document.querySelector('[data-projects]')
 
+        let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || []
+
         /* method for clearing and rendering new project list */
         this.clearElement(projectList)
         projects.forEach(project => {
