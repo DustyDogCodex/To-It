@@ -1,17 +1,12 @@
-import { Render } from './render.js'
-import { CreateNewProject } from './createProject.js'
-import { Storage } from './storage.js'
+import { loadProjectList } from './render.js'
+import { createNewProject } from './createProject.js'
+import { saveToLocalStorage } from './storage.js'
 
+const myProjects = document.querySelector('[data-projects]')
 const newProjectForm = document.querySelector('[data-new-project-form]')
 const newProjectInput = document.querySelector('[data-new-project-input]')
 
-const LOCAL_STORAGE_PROJECT_KEY = 'task.projects'
-let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [] 
-
-function saveAndRender() {
-    Storage.save()
-    Render.projectList()
-}
+let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || []
 
 newProjectForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -19,10 +14,10 @@ newProjectForm.addEventListener('submit', e => {
     if (projectName == null || projectName === '') { 
         return
     }
-    const project = CreateNewProject.createProject(projectName)
+    const project = createNewProject(projectName)
     newProjectInput.value = null
     projects.push(project)
-    saveAndRender()
+    loadProjectList()
 })
 
-Render.projectList()
+loadProjectList()
