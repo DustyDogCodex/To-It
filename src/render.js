@@ -1,24 +1,20 @@
+/* class for rendering a list of projects in the My Projects section. */
 class Render {
-    static projects() {
+    static projectList() {
         const projectList = document.querySelector('[data-projects]')
 
-        let projects = [{
-            id: 1,
-            name: 'name'
-        }, {
-            id: 2,
-            name: 'todo'
-        }]
-
+        /* method for clearing and rendering new project list */
         this.clearElement(projectList)
         projects.forEach(project => {
             const projectElement = document.createElement('li')
+            projectElement.dataset.projectId = project.id
             projectElement.classList.add('project-name')
             projectElement.innerText = project.name
             projectList.appendChild(projectElement)
         });
     }
 
+    /* method clears previous elements from project list before rendering a fresh list. */
     static clearElement(element){
         while (element.firstChild) {
             element.removeChild(element.firstChild)

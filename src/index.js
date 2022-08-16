@@ -1,7 +1,27 @@
 import { Render } from './render.js'
+import { CreateNewProject } from './createProject.js'
 
-const projectList = document.querySelector('[data-projects]')
+const newProjectForm = document.querySelector('[data-new-project-form]')
+const newProjectInput = document.querySelector('[data-new-project-input]')
 
-let projects = ['name','todo']
+let projects = [{
+    id: 1,
+    name: 'name'
+}, {
+    id: 2,
+    name: 'todo'
+}]
 
-Render.projects()
+newProjectForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const projectName = newProjectInput.value
+    if (projectName == null || projectName === '') { 
+        return
+    }
+    const project = CreateNewProject.createProject(projectName)
+    newProjectInput.value = null
+    projects.push(project)
+    Render.projectList()
+})
+
+Render.projectList()
