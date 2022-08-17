@@ -5,6 +5,7 @@ import { saveToLocalStorage } from './storage.js'
 const myProjects = document.querySelector('[data-projects]')
 const newProjectForm = document.querySelector('[data-new-project-form]')
 const newProjectInput = document.querySelector('[data-new-project-input]') 
+const deleteProjectButton = document.querySelector('[data-delete-project-button]')
 
 const LOCAL_STORAGE_PROJECT_KEY = 'toit.projects'
 const LOCAL_STORAGE_ACTIVE_PROJECT_KEY = 'toit.activeProjectId'
@@ -14,9 +15,14 @@ let activeProjectId = localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_KEY)
 myProjects.addEventListener('click', e => {
     if(e.target.tagName.toLowerCase() === 'li') {
         activeProjectId = e.target.dataset.projectId 
-        console.log(activeProjectId)
         saveAndLoad()
     }
+})
+
+deleteProjectButton.addEventListener('click', e => {
+    projects = projects.filter(project => project.id !== activeProjectId)
+    activeProjectId = null
+    saveAndLoad()
 })
 
 newProjectForm.addEventListener('submit', e => {
