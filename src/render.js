@@ -1,5 +1,5 @@
 /* functions for rendering a list of projects in the My Projects section. */
-function loadProjectList(myProjects, projects) {
+function loadProjectList(myProjects, projects, activeProjectId) {
     /* method for clearing and rendering new project list */
     clearProjectList(myProjects)
     
@@ -9,6 +9,10 @@ function loadProjectList(myProjects, projects) {
         projectElement.classList.add('project-name')
         projectElement.dataset.projectId = project.id
         projectElement.innerText = project.name
+
+        if (project.id === activeProjectId) {
+            projectElement.classList.add('active-project')
+        }
         
         myProjects.appendChild(projectElement)
     });

@@ -4,10 +4,20 @@ import { saveToLocalStorage } from './storage.js'
 
 const myProjects = document.querySelector('[data-projects]')
 const newProjectForm = document.querySelector('[data-new-project-form]')
-const newProjectInput = document.querySelector('[data-new-project-input]')
+const newProjectInput = document.querySelector('[data-new-project-input]') 
 
 const LOCAL_STORAGE_PROJECT_KEY = 'toit.projects'
+const LOCAL_STORAGE_ACTIVE_PROJECT_KEY = 'toit.activeProjectId'
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || []
+let activeProjectId = localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_KEY)
+
+myProjects.addEventListener('click', e => {
+    if(e.target.tagName.toLowerCase() === 'li') {
+        activeProjectId = e.target.dataset.projectId 
+        console.log(activeProjectId)
+        saveAndLoad()
+    }
+})
 
 newProjectForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -23,7 +33,8 @@ newProjectForm.addEventListener('submit', e => {
 
 function saveAndLoad() {
     saveToLocalStorage(LOCAL_STORAGE_PROJECT_KEY, projects)
-    loadProjectList(myProjects, projects)
+    saveToLocalStorage(LOCAL_STORAGE_ACTIVE_PROJECT_KEY, activeProjectId)
+    loadProjectList(myProjects, projects, activeProjectId)
 }
 
-loadProjectList(myProjects, projects)
+loadProjectList(myProjects, projects, activeProjectId)
