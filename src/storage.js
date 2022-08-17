@@ -1,6 +1,6 @@
 /* for accessing and setting stuff in local storage */
-function saveToLocalStorage(){
-    localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects))
+function saveToLocalStorage(projectKey, projects){
+    localStorage.setItem(projectKey, JSON.stringify(projects))
 }
 
 export { saveToLocalStorage }

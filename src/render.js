@@ -1,11 +1,5 @@
 /* functions for rendering a list of projects in the My Projects section. */
-const myProjects = document.querySelector('[data-projects]')
-
-const LOCAL_STORAGE_PROJECT_KEY = 'toit.projects'
-let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || []
-
-console.log(LOCAL_STORAGE_PROJECT_KEY)
-function loadProjectList() {
+function loadProjectList(myProjects, projects) {
     /* method for clearing and rendering new project list */
     clearProjectList(myProjects)
     
@@ -27,7 +21,4 @@ function clearProjectList(element){
     }
 }
 
-function saveToLocalStorage(){
-    localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects))
-}
-export { loadProjectList, clearProjectList }
+export { loadProjectList }
