@@ -1,7 +1,7 @@
 /* functions for rendering a list of projects in the My Projects section. */
 function loadProjectList(myProjects, projects, activeProjectId) {
     /* method for clearing and rendering new project list */
-    clearProjectList(myProjects)
+    clear(myProjects)
     
     projects.forEach(project => {
         const projectElement = document.createElement('li')
@@ -19,10 +19,10 @@ function loadProjectList(myProjects, projects, activeProjectId) {
 }
 
 /* this function clears previous elements from project list before rendering a fresh list. */
-function clearProjectList(element){
+function clear(element){
     while (element.firstChild) {
         element.removeChild(element.firstChild)
     }
 }
 
-export { loadProjectList }
+export { loadProjectList, clear }

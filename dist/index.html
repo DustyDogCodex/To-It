@@ -37,14 +37,14 @@
     </div>
 
     <!-- html for the to-do display area (the entire right side of the screen basically) -->
-    <div class="todo-list">
+    <div class="todo-list" data-project-display>
         <div class="todo-list-header">
-            <h2 class="project-title">Project 1</h2>
-            <p class="task-count">X tasks remaining</p>
+            <h2 class="project-title" data-project-title>Project 1</h2>
+            <p class="task-count" data-task-count>X tasks remaining</p>
         </div>
 
         <div class="todo-display">
-            <div class="todos">
+            <div class="todos" data-todos>
                 <!-- switched naming from todos to task here, so that I know when I'm working inside the todo-display area  -->
                 <!-- hardcoding these tasks for working on the styling. In the final porject, these would be generated thru JS -->
                 <div class="task">
@@ -97,7 +97,7 @@
 
             <div class="delete-stuff">
                 <button class="delete-button">Clear completed tasks</button>
-                <button class="delete-button">Delete project</button>
+                <button class="delete-button" data-delete-project-button>Delete project</button>
             </div>
         </div>
     </div>

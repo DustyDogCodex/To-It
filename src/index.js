@@ -1,4 +1,4 @@
-import { loadProjectList } from './render.js'
+import { loadProjectList,clear } from './render.js'
 import { createNewProject } from './createProject.js'
 import { saveToLocalStorage } from './storage.js'
 
@@ -6,6 +6,10 @@ const myProjects = document.querySelector('[data-projects]')
 const newProjectForm = document.querySelector('[data-new-project-form]')
 const newProjectInput = document.querySelector('[data-new-project-input]') 
 const deleteProjectButton = document.querySelector('[data-delete-project-button]')
+const projectDisplay = document.querySelector('[data-project-display]')
+const projectTitle = document.querySelector('[data-project-title]')
+const taskCount = document.querySelector('[data-task-count]')
+const todos = document.querySelector('[data-todos]')
 
 const LOCAL_STORAGE_PROJECT_KEY = 'toit.projects'
 const LOCAL_STORAGE_ACTIVE_PROJECT_KEY = 'toit.activeProjectId'
@@ -37,10 +41,31 @@ newProjectForm.addEventListener('submit', e => {
     saveAndLoad()
 })
 
+function load() {
+    clear(myProjects)
+    loadProjectList(myProjects, projects, activeProjectId)
+
+    const activeProject = projects.find(project => project.id === activeProjectId)
+    if(activeProjectId == null) {
+        projectDisplay.style.display = 'none'
+    } else {
+        projectDisplay.style.display = ''
+        projectTitle.innerText = activeProject.name 
+        loadTaskCount(activeProject)
+    }
+}
+
+function loadTaskCount(activeProject) {
+    const incompleteTasks = activeProject.tasks.filter(task => !task.complete).length
+    const taskString = incompleteTasks === 1 ? "task" : "tasks"
+    taskCount.innerText = `${incompleteTasks} ${taskString} remaining`
+}
+
 function saveAndLoad() {
     saveToLocalStorage(LOCAL_STORAGE_PROJECT_KEY, projects)
     saveToLocalStorage(LOCAL_STORAGE_ACTIVE_PROJECT_KEY, activeProjectId)
     loadProjectList(myProjects, projects, activeProjectId)
 }
 
-loadProjectList(myProjects, projects, activeProjectId)
+/* loadProjectList(myProjects, projects, activeProjectId) */
+load()
