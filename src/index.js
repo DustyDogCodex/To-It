@@ -55,6 +55,22 @@ function load() {
     }
 }
 
+function loadTasks() {
+    activeProject.tasks.forEach(task => {
+        const taskDiv = document.importNode(taskTemplate.content, true)
+
+        const checkbox = taskDiv.querySelector('input')
+        checkbox.id = task.id
+        checkbox.checked = task.complete
+
+        const label = taskDiv.querySelector('label')
+        label.htmlFor = task.id
+        label.append(task.name)
+
+        todos.appendChild(taskDiv)
+    })
+}
+
 function loadTaskCount(activeProject) {
     const incompleteTasks = activeProject.tasks.filter(task => !task.complete).length
     const taskString = incompleteTasks === 1 ? "task" : "tasks"
